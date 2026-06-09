@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #a3a3a3;
+  --gold: #d4af37;
+  --gold-light: #f5d76e;
+  --gold-dark: #b8962e;
+  --card: #111111;
+  --card-border: #1f1f1f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --font-sans: var(--font-plus-jakarta);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #f5d76e 0%, #d4af37 50%, #b8962e 100%);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #f5d76e 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
