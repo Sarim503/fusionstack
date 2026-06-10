@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BarChart3, Target, TrendingUp, Users } from "lucide-react";
+import { BarChart3, FolderKanban, Smile, Users } from "lucide-react";
 
 const stats = [
-  { icon: Users, value: "4+", label: "Years Experience" },
-  { icon: Target, value: "100+", label: "Campaigns Managed" },
-  { icon: BarChart3, value: "Millions", label: "In Ad Spend" },
-  { icon: TrendingUp, value: "Proven", label: "Growth Results" },
+  { icon: Users, value: "20+", label: "Happy Clients" },
+  { icon: FolderKanban, value: "25+", label: "Projects Completed" },
+  { icon: Smile, value: "90%", label: "Client Satisfaction" },
+  { icon: BarChart3, value: "5+", label: "Years Experience" },
 ];
 
 export function DigitalMarketingStats() {
@@ -23,7 +23,7 @@ export function DigitalMarketingStats() {
             transition={{ duration: 0.4, delay: i * 0.1 }}
             className="flex flex-col items-center rounded-2xl border border-gold/20 bg-card px-6 py-8 text-center"
           >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-gold/30 bg-gold/10">
               <stat.icon className="h-5 w-5 text-gold" />
             </div>
             <p className="mb-1 text-2xl font-bold text-white">{stat.value}</p>

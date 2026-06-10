@@ -11,7 +11,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "fusionstack — Digital Product Agency",
   description:
-    "We build digital products that scale. Web development, UI/UX design, digital marketing, and motion graphics.",
+    "We build digital products that scale. Web development, AI product design, digital marketing, and game development.",
 };
 
 export default function RootLayout({

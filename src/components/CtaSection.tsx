@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
-import { Button } from "./Button";
+import { ContactIcons } from "./ContactIcons";
 
 export function CtaSection() {
   return (
@@ -14,8 +13,10 @@ export function CtaSection() {
         transition={{ duration: 0.5 }}
         className="mx-auto flex max-w-7xl flex-col items-center gap-6 rounded-2xl border border-card-border bg-card px-6 py-8 sm:flex-row sm:gap-8 sm:px-10 sm:py-10"
       >
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gold/10">
-          <MessageCircle className="h-7 w-7 text-gold" />
+        <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
+          <div className="absolute h-14 w-14 rounded-full border border-gold/30" />
+          <div className="absolute h-9 w-9 rounded-full border border-gold/50" />
+          <div className="h-5 w-5 rounded-full bg-gold/20" />
         </div>
 
         <div className="flex-1 text-center sm:text-left">
@@ -27,9 +28,7 @@ export function CtaSection() {
           </p>
         </div>
 
-        <Button href="mailto:hello@fusionstack.com" className="shrink-0">
-          Book a Call
-        </Button>
+        <ContactIcons className="shrink-0" />
       </motion.div>
     </section>
   );

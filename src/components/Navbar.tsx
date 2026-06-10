@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { ContactIcons } from "./ContactIcons";
 import { Logo } from "./Logo";
-import { Button } from "./Button";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -15,8 +15,8 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+    <header className="fixed top-0 right-0 left-0 z-50 bg-black/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <a href="#">
           <Logo />
         </a>
@@ -34,9 +34,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <Button variant="outline" href="#contact">
-            Book a Call
-          </Button>
+          <ContactIcons />
         </div>
 
         <button
@@ -62,9 +60,9 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <Button variant="outline" href="#contact" className="mt-2 justify-center">
-              Book a Call
-            </Button>
+            <div className="mt-4 flex justify-center">
+              <ContactIcons />
+            </div>
           </nav>
         </div>
       )}

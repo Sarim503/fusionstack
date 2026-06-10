@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { BarChart3, Brain, Gamepad2, Monitor } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
+import { ViewMoreButton } from "./ViewMoreButton";
 
 const services = [
   {
@@ -15,10 +15,10 @@ const services = [
   },
   {
     icon: Brain,
-    title: "AI Powered Product Designer",
+    title: "AI Powered Product Design",
     description:
       "Designing intelligent products powered by AI to solve real-world problems.",
-    href: "#contact",
+    href: "/ai-product-design",
   },
   {
     icon: BarChart3,
@@ -42,46 +42,26 @@ export function Services() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader label="What I Do" title="Services" />
 
-        <div className="grid gap-10 sm:grid-cols-2 sm:gap-0 lg:grid-cols-4">
-          {services.map((service, i) => {
-            const content = (
-              <>
-                <service.icon className="mb-6 h-8 w-8 text-gold transition-colors group-hover:text-gold-light" />
-                <h3 className="mb-4 text-lg font-semibold text-white transition-colors group-hover:text-gold">
-                  {service.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted">
-                  {service.description}
-                </p>
-              </>
-            );
-
-            const columnClass = `group flex flex-col py-2 transition-colors sm:px-8 ${
-              i > 0 ? "lg:border-l lg:border-white/10" : ""
-            } ${i % 2 === 1 ? "sm:border-l sm:border-white/10" : ""} ${
-              i >= 2 ? "sm:mt-10 lg:mt-0" : ""
-            }`;
-
-            return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-              >
-                {service.href.startsWith("/") ? (
-                  <Link href={service.href} className={columnClass}>
-                    {content}
-                  </Link>
-                ) : (
-                  <a href={service.href} className={columnClass}>
-                    {content}
-                  </a>
-                )}
-              </motion.div>
-            );
-          })}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service, i) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="group flex h-full flex-col rounded-2xl border border-card-border bg-card p-6 transition-all duration-300 hover:border-gold/30"
+            >
+              <service.icon className="mb-6 h-8 w-8 text-gold transition-colors group-hover:text-gold-light" />
+              <h3 className="mb-3 text-lg font-semibold text-white transition-colors group-hover:text-gold">
+                {service.title}
+              </h3>
+              <p className="mb-6 flex-1 text-sm leading-relaxed text-muted">
+                {service.description}
+              </p>
+              <ViewMoreButton href={service.href} />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

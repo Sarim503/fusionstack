@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { DigitalMarketingAbout } from "@/components/digital-marketing/DigitalMarketingAbout";
+import { DigitalMarketingCta } from "@/components/digital-marketing/DigitalMarketingCta";
 import { DigitalMarketingFooter } from "@/components/digital-marketing/DigitalMarketingFooter";
 import { DigitalMarketingHero } from "@/components/digital-marketing/DigitalMarketingHero";
 import { DigitalMarketingNavbar } from "@/components/digital-marketing/DigitalMarketingNavbar";
+import { DigitalMarketingProjects } from "@/components/digital-marketing/DigitalMarketingProjects";
 import { DigitalMarketingServices } from "@/components/digital-marketing/DigitalMarketingServices";
 import { DigitalMarketingStats } from "@/components/digital-marketing/DigitalMarketingStats";
 
@@ -21,6 +23,8 @@ export default function DigitalMarketingPage() {
         <DigitalMarketingStats />
         <DigitalMarketingAbout />
         <DigitalMarketingServices />
+        <DigitalMarketingProjects />
+        <DigitalMarketingCta />
       </main>
       <DigitalMarketingFooter />
     </>

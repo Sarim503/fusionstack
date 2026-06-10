@@ -2,26 +2,27 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { Button } from "../Button";
+import { ContactIcons } from "../ContactIcons";
+import { Logo } from "../Logo";
 
 const navLinks = [
-  { label: "Services", href: "/#services" },
-  { label: "About", href: "/#about" },
-  { label: "Projects", href: "#projects", active: true },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function WebDevelopmentNavbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 rounded-xl border border-gold/30 px-4 py-2 text-sm font-medium text-white transition-colors hover:border-gold hover:text-gold"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back
+    <header className="fixed top-0 right-0 left-0 z-50 bg-black/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+        <Link href="/">
+          <Logo />
         </Link>
 
         <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-1.5 md:flex">
@@ -29,9 +30,9 @@ export function WebDevelopmentNavbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-full px-5 py-2 text-sm transition-colors ${
-                link.active
-                  ? "text-gold underline decoration-gold underline-offset-4"
+              className={`rounded-full px-4 py-2 text-sm transition-colors ${
+                link.label === "Home"
+                  ? "bg-gold text-black font-semibold"
                   : "text-muted hover:text-white"
               }`}
             >
@@ -40,13 +41,10 @@ export function WebDevelopmentNavbar() {
           ))}
         </nav>
 
-        <Link
-          href="/#contact"
-          className="hidden items-center gap-2 rounded-xl border border-gold/50 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:border-gold hover:bg-gold/10 md:inline-flex"
-        >
-          Let&apos;s Talk
-          <ArrowUpRight className="h-4 w-4" />
-        </Link>
+        <div className="hidden items-center gap-4 md:flex">
+          <ContactIcons />
+          <Button href="#contact">Let&apos;s Talk</Button>
+        </div>
 
         <button
           type="button"
@@ -66,21 +64,17 @@ export function WebDevelopmentNavbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-lg px-4 py-3 transition-colors hover:bg-white/5 ${
-                  link.active ? "text-gold" : "text-muted hover:text-white"
-                }`}
+                className="rounded-lg px-4 py-3 text-muted transition-colors hover:bg-white/5 hover:text-white"
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/#contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border border-gold/50 px-5 py-2.5 text-sm font-semibold text-gold"
-            >
-              Let&apos;s Talk
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            <div className="mt-4 flex flex-col items-center gap-4">
+              <ContactIcons />
+              <Button href="#contact" className="w-full justify-center">
+                Let&apos;s Talk
+              </Button>
+            </div>
           </nav>
         </div>
       )}

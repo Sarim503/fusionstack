@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 type ButtonProps = {
@@ -27,7 +27,7 @@ export function Button({
   return (
     <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
       {children}
-      <ArrowUpRight className="h-4 w-4" />
+      <ArrowRight className="h-4 w-4" />
     </Link>
   );
 }
